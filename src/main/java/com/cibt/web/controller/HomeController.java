@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -20,5 +21,11 @@ public class HomeController{
         model.addAttribute("colors", 
                 new String[]{"orange","green","red","purple"});
        return "index"; 
+    }
+    
+    @GetMapping(value = "/test")
+    @ResponseBody
+    public String test(){
+        return "<h1>This is test method of spring</h1>";
     }
 }
