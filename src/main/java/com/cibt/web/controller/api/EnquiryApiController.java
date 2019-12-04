@@ -38,7 +38,7 @@ public class EnquiryApiController {
    public ResponseEntity<Enquiry> detail(
            @PathVariable("id")int id){
      return ResponseEntity.ok(
-             repository.findById(id)
+             repository.findById(id).get()
      );  
    }
    

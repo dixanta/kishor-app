@@ -6,15 +6,17 @@
 package com.cibt.web.repository;
 
 import com.cibt.web.entity.Enquiry;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 
 /**
  *
  * @author apple
  */
-public interface EnquiryRepository {
-    List<Enquiry> findAll();
-    int insert(Enquiry enquiry);
-    Enquiry findById(int id);
+@Repository
+public interface EnquiryRepository 
+    extends JpaRepository<Enquiry, Integer>{
+    
 }
 

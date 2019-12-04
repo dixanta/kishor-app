@@ -32,11 +32,11 @@ public class DatabaseController {
     @ResponseBody
     public String index(){
         repository
-                .insert(
-                        new Enquiry(0,"Ramesh", "Shrestha"));
+                .save(
+                        new Enquiry(0,"Ramila", "Shrestha"));
         repository
-                .insert(
-                        new Enquiry(0,"Ramesh", "Kumar"));
+                .save(
+                        new Enquiry(0,"Shova", "Kumar"));
         return "<h1>Record added</h1>";
     }
 }
