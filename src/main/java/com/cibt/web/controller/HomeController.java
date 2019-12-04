@@ -28,4 +28,10 @@ public class HomeController{
     public String test(){
         return "<h1>This is test method of spring</h1>";
     }
+    
+    @GetMapping(value = "/about")
+    @ResponseBody
+    public String about(){
+        return "<h1>This is About us page</h1>";
+    }
 }
