@@ -2,5 +2,5 @@
 <h1 th:text="name"></h1>
 
 <ul>
-    <li th:each="color:${colors}" th:style="${'color:'+${color}}" th:text="${color}"></li>
+    <li th:each="color:${colors}" th:style="'color:'+${color}" th:text="${color}"></li>
 </ul>
