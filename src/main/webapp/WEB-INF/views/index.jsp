@@ -14,9 +14,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>${requestScope.name}</h1>
+        <h1>${name}</h1>
         <ul>
-            <c:forEach var="color" items="${requestScope.colors}">
+            <c:forEach var="color" items="${colors}">
                 <li style="color:${color}">${color}</li>
             </c:forEach>
         </ul>
