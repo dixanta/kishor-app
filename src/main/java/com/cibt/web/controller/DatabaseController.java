@@ -39,11 +39,11 @@ public class DatabaseController {
     @ResponseBody
     public String insert(){
         String sql="insert into tbl_enquiries("
-                + "first_name,last_name) values('Kishor','Pandey')";
+                + "first_name,last_name) values('Dixanta','Shrestha')";
         int result=template.update(sql);
         return "<h1>table created " + result + "</h1>";
     }
-    
+   
     @GetMapping(value = "/test")
     @ResponseBody
     public List<String> test(){
