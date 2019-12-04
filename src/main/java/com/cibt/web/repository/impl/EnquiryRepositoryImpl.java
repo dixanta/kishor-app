@@ -49,5 +49,15 @@ public class EnquiryRepositoryImpl
             enquiry.getFirstName(),enquiry.getLastName()
         });
     }
+
+    @Override
+    public Enquiry findById(int id) {
+        String sql="select * from tbl_enquiries where id=?";
+        return template.queryForObject(sql,
+                new Object[]{id}, (ResultSet rs, int i) -> new Enquiry(
+                        rs.getInt("id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name")));
+    }
     
 }

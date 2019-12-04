@@ -15,4 +15,6 @@ import java.util.List;
 public interface EnquiryRepository {
     List<Enquiry> findAll();
     int insert(Enquiry enquiry);
+    Enquiry findById(int id);
 }
+

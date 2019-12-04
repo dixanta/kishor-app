@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +32,14 @@ public class EnquiryApiController {
     @GetMapping()
    public List<Enquiry> index(){
        return repository.findAll();
+   }
+   
+   @GetMapping(value="/{id}")
+   public ResponseEntity<Enquiry> detail(
+           @PathVariable("id")int id){
+     return ResponseEntity.ok(
+             repository.findById(id)
+     );  
    }
    
    @GetMapping(value="/test")
