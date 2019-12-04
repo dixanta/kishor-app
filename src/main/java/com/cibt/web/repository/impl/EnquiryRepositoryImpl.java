@@ -40,5 +40,14 @@ public class EnquiryRepositoryImpl
            }
        });
     }
+
+    @Override
+    public int insert(Enquiry enquiry) {
+        String sql="insert into tbl_enquiries(first_name,last_name)"
+                + "values(?,?)";
+        return template.update(sql,new Object[]{
+            enquiry.getFirstName(),enquiry.getLastName()
+        });
+    }
     
 }

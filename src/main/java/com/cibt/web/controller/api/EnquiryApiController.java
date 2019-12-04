@@ -34,7 +34,7 @@ public class EnquiryApiController {
    }
    
    @GetMapping(value="/test")
-   public ResponseEntity test(){
+   public ResponseEntity<List<Enquiry>> test(){
      return ResponseEntity.ok(
              repository.findAll()
      );  

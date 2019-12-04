@@ -5,6 +5,8 @@
  */
 package com.cibt.web.controller;
 
+import com.cibt.web.entity.Enquiry;
+import com.cibt.web.repository.EnquiryRepository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -24,37 +26,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "/database")
 public class DatabaseController {
     @Autowired
-    private JdbcTemplate template;
+    private EnquiryRepository repository;
     
     @GetMapping()
     @ResponseBody
     public String index(){
-        String sql="create table tbl_enquiries(id serial primary key,"
-                + "first_name varchar(200),last_name varchar(200))";
-        int result=template.update(sql);
-        return "<h1>table created " + result + "</h1>";
-    }
-    
-    @GetMapping(value = "/add")
-    @ResponseBody
-    public String insert(){
-        String sql="insert into tbl_enquiries("
-                + "first_name,last_name) values('Dixanta','Shrestha')";
-        int result=template.update(sql);
-        return "<h1>table created " + result + "</h1>";
-    }
-   
-    @GetMapping(value = "/test")
-    @ResponseBody
-    public List<String> test(){
-        String sql="select * from tbl_enquiries";
-        return template.query(sql, new RowMapper<String>() {
-            @Override
-            public String mapRow(ResultSet rs, int i) throws SQLException {
-                return rs.getString("first_name") +
-                        " " +
-                        rs.getString("last_name");
-            }
-        });
+        repository
+                .insert(
+                        new Enquiry(0,"Ramesh", "Shrestha"));
+        repository
+                .insert(
+                        new Enquiry(0,"Ramesh", "Kumar"));
+        return "<h1>Record added</h1>";
     }
 }
