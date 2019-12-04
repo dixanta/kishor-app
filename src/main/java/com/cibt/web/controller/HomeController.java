@@ -19,7 +19,7 @@ public class HomeController{
     public String index(Model model){
         model.addAttribute("name", "Creators Institute");
         model.addAttribute("colors", 
-                new String[]{"orange","green","red","purple"});
+                new String[]{"blue","aqua","orange","green","red","purple"});
        return "index"; 
     }
     
